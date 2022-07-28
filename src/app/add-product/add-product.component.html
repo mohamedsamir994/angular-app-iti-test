@@ -1,0 +1,180 @@
+<app-product-cart></app-product-cart>
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+    <h3 class="lead fs-4">Add Product</h3>
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Circle-icons-dolly.svg/1024px-Circle-icons-dolly.svg.png"
+        id="icon"
+        alt="User Icon"
+        style="width: 40px"
+      />
+    </div>
+
+    <!-- Login Form -->
+    <form [formGroup]="myForm">
+      <input
+        type="text"
+        id="login"
+        class="fadeIn second"
+        name="id"
+        placeholder="Id"
+        autocomplete="off"
+        formControlName="id"
+        #inn
+      />
+      <p
+        [hidden]="id.pristine || id.valid || inn.value.length > 0"
+        style="color: red"
+      >
+        Id Can't Be Empty
+      </p>
+
+      <input
+        formControlName="title"
+        type="text"
+        id="password"
+        class="fadeIn third"
+        name="title"
+        autocomplete="off"
+        placeholder="title"
+        #tit
+      />
+      <p
+        [hidden]="title.pristine || title.valid || tit.value.length > 0"
+        style="color: red"
+      >
+        Title Can't Be Empty
+      </p>
+      <input
+        formControlName="price"
+        type="text"
+        id="password"
+        class="fadeIn third"
+        name="price"
+        autocomplete="off"
+        placeholder="price"
+        #pri
+      />
+      <p
+        [hidden]="price.pristine || price.valid || pri.value.length > 0"
+        style="color: red"
+      >
+        price Can't Be Empty
+      </p>
+      <input
+        formControlName="description"
+        type="text"
+        id="password"
+        class="fadeIn third"
+        name="title"
+        autocomplete="off"
+        placeholder="Description"
+        #des
+      />
+      <p
+        [hidden]="
+          description.pristine || description.valid || des.value.length > 0
+        "
+        style="color: red"
+      >
+        description Can't Be Empty
+      </p>
+      <input
+        formControlName="category"
+        type="text"
+        id="password"
+        class="fadeIn third"
+        name="title"
+        autocomplete="off"
+        placeholder="Category"
+        #cat
+      />
+      <p
+        [hidden]="category.pristine || category.valid || cat.value.length > 0"
+        style="color: red"
+      >
+        category Can't Be Empty
+      </p>
+      <input
+        formControlName="image"
+        type="text"
+        id="password"
+        class="fadeIn third"
+        name="title"
+        autocomplete="off"
+        placeholder="Image URL Address"
+        #img
+      />
+      <p
+        [hidden]="image.pristine || image.valid || img.value.length > 0"
+        style="color: red"
+      >
+        image Can't Be Empty
+      </p>
+      <div formGroupName="rating">
+        <input
+          formControlName="rate"
+          type="text"
+          id="password"
+          class="fadeIn third"
+          name="title"
+          autocomplete="off"
+          placeholder="Product Rate"
+          #rat
+        />
+        <p
+          [hidden]="
+            ratingRate.pristine || ratingRate.valid || rat.value.length > 0
+          "
+          style="color: red"
+        >
+          rate Can't Be Empty
+        </p>
+        <input
+          formControlName="count"
+          type="text"
+          id="password"
+          class="fadeIn third"
+          name="title"
+          autocomplete="off"
+          placeholder="Product Count"
+          #cout
+        />
+        <p
+          [hidden]="
+            ratingCount.pristine || ratingCount.valid || cout.value.length > 0
+          "
+          style="color: red"
+        >
+          Count Can't Be Empty
+        </p>
+
+        <input
+          type="submit"
+          class=""
+          (click)="addProduct(myForm.value)"
+          value="Add The Product"
+          routerLink="add"
+          [disabled]="
+            id.invalid ||
+            title.invalid ||
+            description.invalid ||
+            category.invalid ||
+            image.invalid ||
+            price.invalid ||
+            ratingRate.invalid ||
+            ratingCount.invalid
+          "
+        />
+      </div>
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href="#">Go Back</a>
+    </div>
+  </div>
+</div>

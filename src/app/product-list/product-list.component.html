@@ -1,0 +1,22 @@
+<div class="container row mt-2">
+  <app-product-cart></app-product-cart>
+  <br />
+  <br />
+  <br />
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">Filter</span>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Search"
+      [(ngModel)]="values"
+    />
+  </div>
+  <app-product-card
+    class="col-4 mt-5"
+    *ngFor="let p of alldata | filter: values:['title']"
+    [mydata]="p"
+    (onAddToCart)="getProductData($event)"
+  >
+  </app-product-card>
+</div>

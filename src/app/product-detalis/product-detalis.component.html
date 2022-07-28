@@ -1,0 +1,19 @@
+<div class="container">
+  <div
+    class="card ms-2 mt-4 text-bg-secondary shadow rounded all-card"
+    style="max-width: 18rem"
+  >
+    <img src="{{ myUser!.image }}" class="card-img-top image" alt="..." />
+
+    <div class="card-body">
+      <h5 appChangeBG class="card-title">{{ myUser!.title | slice: 15 }}...</h5>
+      <p class="lead bold ok" #p>{{ myUser!.price | currency }}</p>
+      <p class="lead bold ok" #p>rate :{{ myUser!.rating.rate }}</p>
+      <p class="card-text text">
+        {{ myUser!.description | slice: 100 }}
+      </p>
+      <a class="btn btn-primary">Add To Cart</a>
+      <a class="btn btn-primary ms-2">Details</a>
+    </div>
+  </div>
+</div>

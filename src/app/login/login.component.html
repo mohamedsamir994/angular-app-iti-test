@@ -1,0 +1,78 @@
+<app-product-cart> </app-product-cart>
+<div class="sidenav">
+  <div class="login-main-text">
+    <h2>
+      Application<br />
+      Login Page
+    </h2>
+    <p>Login from here to access.</p>
+  </div>
+</div>
+<div class="main">
+  <div class="col-md-6 col-sm-12">
+    <div class="login-form">
+      <form
+        #myForm="ngForm"
+        (ngSubmit)="submitt(myForm.value)"
+        autocomplete="off"
+      >
+        <div class="form-group">
+          <label>User Name</label>
+          <input
+            type="text"
+            class="form-control mt-1 mb-2 userInput"
+            placeholder="User Name"
+            name="username"
+            [(ngModel)]="userLogin.username"
+            #usernameRef="ngModel"
+            required
+            minlength="5"
+            #inn
+          />
+          <!-- {{ usernameRef.errors | json }} -->
+          <span
+            [hidden]="
+              usernameRef.pristine || usernameRef.valid || inn.value.length > 0
+            "
+            style="color: red"
+            >User Name Can't Be Empty
+          </span>
+          <span *ngIf="usernameRef.errors?.['minlength']" style="color: red"
+            >User Name Can't Be Less than 5
+          </span>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input
+            type="password"
+            class="form-control mt-1 mb-2 userInput"
+            placeholder="Password"
+            name="password"
+            [(ngModel)]="userLogin.password"
+            #passwordRef="ngModel"
+            #pass
+            required
+            minlength="8"
+          />
+          <span
+            [hidden]="
+              passwordRef.pristine || passwordRef.valid || pass.value.length > 0
+            "
+            style="color: red"
+            >Password Can't Be Empty
+          </span>
+          <span *ngIf="passwordRef.errors?.['minlength']" style="color: red"
+            >Password Can't Be Less than 8
+          </span>
+        </div>
+        <button
+          type="submit"
+          class="btn btn-black ms-2 mt-2"
+          [disabled]="usernameRef.invalid || passwordRef.invalid"
+        >
+          Login
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

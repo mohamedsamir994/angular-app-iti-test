@@ -1,0 +1,25 @@
+<div
+  class="card ms-2 mt-4 text-bg-secondary shadow rounded all-card"
+  style="max-width: 18rem"
+>
+  <img
+    src="{{ mydata.image }}"
+    (mouseenter)="show(mydata)"
+    (mouseleave)="hide()"
+    class="card-img-top image"
+    alt="..."
+  />
+
+  <div class="card-body">
+    <h5 appChangeBG class="card-title">{{ mydata.title | slice: 15 }}...</h5>
+    <p class="lead bold ok" #p>{{ mydata.price | currency }}</p>
+    <p class="lead bold ok" #p>rate :{{ mydata.rating.rate }}</p>
+    <p class="card-text text">
+      {{ mydata.description | slice: 100 }}
+    </p>
+    <a class="btn btn-primary" (click)="getTilteData(mydata)">Add To Cart</a>
+    <a class="btn btn-primary ms-2" routerLink="/productd/{{ mydata.id }}"
+      >Details</a
+    >
+  </div>
+</div>
